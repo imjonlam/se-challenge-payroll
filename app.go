@@ -13,7 +13,7 @@ import (
 	"time"
 
 	"github.com/gorilla/mux"
-	"github.com/imjonlam/waveapi/models"
+	"github.com/imjonlam/wave_payroll_api/models"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"

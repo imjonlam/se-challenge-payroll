@@ -125,10 +125,86 @@ We consider ourselves to be language agnostic here at Wave, so feel free to use 
 Please commit the following to this `README.md`:
 
 1. Instructions on how to build/run your application
+
+    **WHERE TO CLONE TO?**
+      - Clone repostory to: *%GOPATH%/src/github.com/{username}/se-challenge-payroll*
+
+    **API ROUTES**
+     - **GET**: `/report`
+     - **POST**:  `/report`
+        - form-data with key = `'file`'
+
+    **REQUIREMENTS**:
+      - **Language**:
+        - GO (https://golang.org/dl/)
+      - **Libraries used**
+        - *run `go build` in repository to resolve all dependencies*
+        1. gorm (https://gorm.io/):
+            - `go get -u -v gorm.io/gorm`
+        2. gorm mysql: 
+            - `go get -u -v gorm.io/driver/mysql`
+        3. gorilla/mux (https://github.com/gorilla/mux):
+            - `go get -u -v github.com/gorilla/mux`
+
+
+    **CONFIGURATION** (**important**):
+      - *configuration file provided as exemplar only. In production, should be a dotenv and ignored from repository*
+      - In the file [./env.go](env.go), modify the variables per your database configurations
+        - `DBNAME` used for main application database
+        - `TEST_DBNAME` used for running tests
+      - **NOTE**:
+        1. Application **does not** create database in schema for you. However, tables are setup for you.
+        2. Tests **do not** create database for you
+            - **DO NOT USE SAME DATABASE** - database table records are wiped during and after tests are performed.
+            - *If for mock purposes, ignore above*
+
+   **TO CREATE APPLICATION** (*optional*):
+      - In repository (*%GOPATH%/src/github.com/{username}/se-challenge-payroll*)  : 
+        - `go install`
+      - Executable stored in: *%GOPATH%/bin/wave_payroll_api*
+  
+    **TO RUN APPLICATION (*setup database, start mux server*)**:
+      - If an executable is created, simply run it. 
+        - I.E.: `./wave_payroll_api`
+      - Otherwise:
+        - In repository use: `go run .`
+
+    **Testing**
+      - In repostory run:  `go test -v`
+
 1. Answers to the following questions:
-   - How did you test that your implementation was correct?
-   - If this application was destined for a production environment, what would you add or change?
-   - What compromises did you have to make as a result of the time constraints of this challenge?
+   1. How did you test that your implementation was correct?
+    
+      - Testing was performed in two ways:
+        1. Postman was used for manual testing
+        2. `go test` was used to simulate a series of request scenarios.
+            - HTTP responses and database tables were validated
+            - All tests shown in [./main_test.go](main_test.go)
+      - Correctness determined by meeting expected results (outlined above) and passing all test cases
+
+   2. If this application was destined for a production environment, what would you add or change?
+      * **Changes**
+        1. As mentioned earlier, I would add a dotenv file for database configuration and ignore from repository
+        2. Relate all EmployeeID model fields as foreign keys to an actual Employee Table   
+        3. Providing more accurate error messages to all cases (currently returns default error message for some instances)
+      
+      * **Additions**
+        1. Add verbose logging for all API requests
+        2. Add Update and Delete (to complete CRUD) requests
+
+   3. What compromises did you have to make as a result of the time constraints of this challenge?
+      - As this was the first time I've made an API as well as using GO, likely not all the best practices were used.
+      - I wish I could've implemented a middleware for logging API requests
+      - Relational database could have been normalized better, pay_groups table should not be hardcoded with preset groups/rates
+
+**Special Note**
+ - Per felixc, quote *"let's simplify by saying that an employee can only be in one job group at a time"*,
+    - My implementation stores the group (and rate) outside of the time_sheets table. This means allows for more flexility
+    - Instead of one employee being tied to a specific group, it is dependant on the uploaded time-report
+      - This means that the application works as intended if said employee changes groups during the same pay period
+
+ - Thank you for giving me the opportunity to learn to develop in something entirely outside of my scope!
+
 
 ## Submission Instructions
 

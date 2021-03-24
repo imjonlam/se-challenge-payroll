@@ -15,7 +15,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/imjonlam/waveapi/models"
+	"github.com/imjonlam/wave_payroll_api/models"
 )
 
 // Global variable App

@@ -1,0 +1,10 @@
+The sample_data outlined in this directory are as follows: 
+
+Original file
+1. time-report-42.csv - original file cloned from https://github.com/wvchallenges/se-challenge-payroll
+
+Testing related files
+1. time-report-42.xls - changed extension
+2. time-report-fortytwo.csv - changed filename ID representation
+3. time-report-404.csv - modified column header (date to datetime)
+4. time-report-32.csv - modified record datatypes (integer 4 to string four)

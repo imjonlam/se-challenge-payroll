@@ -1,25 +1,4 @@
 # Wave Software Development Challenge
-
-Applicants for the Full-stack Developer role at Wave must
-complete the following challenge, and submit a solution prior to the onsite
-interview.
-
-The purpose of this exercise is to create something that we can work on
-together during the onsite. We do this so that you get a chance to collaborate
-with Wavers during the interview in a situation where you know something better
-than us (it's your code, after all!)
-
-There isn't a hard deadline for this exercise; take as long as you need to
-complete it. However, in terms of total time spent actively working on the
-challenge, we ask that you not spend more than a few hours, as we value your
-time and are happy to leave things open to discussion in the on-site interview.
-
-Please use whatever programming language and framework you feel the most
-comfortable with.
-
-Feel free to email [dev.careers@waveapps.com](dev.careers@waveapps.com) if you
-have any questions.
-
 ## Project Description
 
 Imagine that this is the early days of Wave's history, and that we are prototyping a new payroll system API. A front end (that hasn't been developed yet, but will likely be a single page application) is going to use our API to achieve two goals:
@@ -204,25 +183,3 @@ Please commit the following to this `README.md`:
       - This means that the application works as intended if said employee changes groups during the same pay period
 
  - Thank you for giving me the opportunity to learn to develop in something entirely outside of my scope!
-
-
-## Submission Instructions
-
-1. Clone the repository.
-1. Complete your project as described above within your local repository.
-1. Ensure everything you want to commit is committed.
-1. Create a git bundle: `git bundle create your_name.bundle --all`
-1. Email the bundle file to [dev.careers@waveapps.com](dev.careers@waveapps.com) and CC the recruiter you have been in contact with.
-
-## Evaluation
-
-Evaluation of your submission will be based on the following criteria.
-
-1. Did you follow the instructions for submission?
-1. Did you complete the steps outlined in the _Documentation_ section?
-1. Were models/entities and other components easily identifiable to the
-   reviewer?
-1. What design decisions did you make when designing your models/entities? Are
-   they explained?
-1. Did you separate any concerns in your application? Why or why not?
-1. Does your solution use appropriate data types for the problem as described?
